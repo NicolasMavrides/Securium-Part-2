@@ -1,0 +1,43 @@
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+
+$custom-theme: (
+  "primary": #f4eb49,
+  "secondary": #e6e8e6,
+  "dark-1": #364156,
+  "dark-2": #000000,
+  "light": #f8f9fa,
+  "light-1": #cfd8dc
+);
+
+$color-primary: map-get($custom-theme, 'primary');
+$color-secondary: map-get($custom-theme, 'secondary');
+$color-dark-1: map-get($custom-theme, 'dark-1');
+$color-dark-2: map-get($custom-theme, 'dark-2');
+$color-light: map-get($custom-theme, 'light');
+$color-light-1: map-get($custom-theme, 'light-1');
+
+$footer-height: 60px;
+$environment-notice-height: 28px;
+
+$screen-md-min: $grid-breakpoints(md);
+$screen-sm-min: $grid-breakpoints(sm);
+$screen-lg-min: $grid-breakpoints(lg);
+
+$screen-sm-max: $container-max-widths(sm);
+$screen-md-max: $container-max-widths(md);
+
+$footer-height: 60px;
+$navbar-default-bg:     #fff;
+$navbar-default-border: #ccc;
+$navbar-default-link-hover-bg: #F7F7F7;
+$navbar-default-link-active-bg: #F7F7F7;
+$navbar-height: 66px;
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}

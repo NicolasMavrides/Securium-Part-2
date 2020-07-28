@@ -1,0 +1,25 @@
+// Place all the styles related to the breaches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+p, h4, li {
+  text-align: left;
+}
+
+.DataClasses {
+  margin-left: 5%;
+}
+
+.alert {
+  margin: 5%;
+}
+
+.result-item, #seeMore {
+  display: none;
+}
+
+@media only screen and (max-width: 575px) {
+  img {
+    display: none;
+  }
+}

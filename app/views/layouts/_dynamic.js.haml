@@ -1,0 +1,7 @@
+- for selector, partial in @selector.zip @partial
+  $('#{selector}').html(`#{j render partial: partial, layout: false}`).hide().fadeIn(200)
+  $(document).trigger('content-dynamic', [$('#{selector}')])
+
+$('.flash-messages').append(`#{j render partial: 'layouts/flash_messages', layout: false}`)
+$('.flash-messages .alert').delay(5000).fadeOut(300, function() { $(this).remove() })
+window.history.pushState(null, null, '#{request.path}')

@@ -1,0 +1,38 @@
+// Place all the styles related to the Recommendations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import 'variables'
+
+#recommendation-content
+    min-height: 250px
+
+.multi-range
+    width: 100%
+    height: 30px
+
+    a
+        @include transition(background-color .2s ease)
+
+        display: inline-block
+        position: relative
+        border-left: solid 1px $color-light
+        border-right: solid 1px $color-light
+        display: inline-block
+        background-color: lighten($color-primary, 25%)
+        height: 100%
+        
+        &:not(.empty):hover
+            background-color: lighten($color-primary, 10%)
+        &.active
+            background-color: $color-primary
+        &.disabled
+            pointer-events: none
+            cursor: default
+        &.empty
+            background-color: $color-secondary
+
+        .percentage
+            position: absolute
+            right: -16px
+            top: -20px

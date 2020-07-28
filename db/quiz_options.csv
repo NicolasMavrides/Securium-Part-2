@@ -1,0 +1,103 @@
+﻿id,letter,option,score,quiz_question_id,created_at,updated_at
+1,A,Phishing refers to an intruder trying to guess your password by trying different combinations and “phishing” for the correct match.,0,1,2020-04-12 14:18:18.700828,2020-04-12 14:18:18.700828
+2,B,Phishing is the act of sending fraudulent emails pretending to be a reputable company. Often this involves sending malicious attachments,3,1,2020-04-12 14:18:31.050411,2020-04-12 14:18:31.050411
+3,C,Phishing refers to pulling out old mobile devices from trash and waste cans hoping to find personal information on these,0,1,2020-04-12 14:18:44.131176,2020-04-12 14:22:03.298413
+4,A,HTTPS stands for Hypertext Transfer Protocol Secure and is using encryption to ensure confidentiality and integrity of the transmitted data,3,2,2020-04-12 14:25:50.442498,2020-04-12 14:25:50.442498
+5,B,HTTPS stands for Hyper Transmission Triplet Protection Standard which refers to a protection standard required to be followed by companies' websites when transmitting personal data. It is based on a triple encryption principle,0,2,2020-04-12 14:26:04.410614,2020-04-12 14:26:04.410614
+6,C,HTTPS stands for Hyperplane Technological Transmission Protocol Security which refers to a commonly used security protocol used when transmitting data on any technological hyperplane,0,2,2020-04-12 14:26:14.084443,2020-04-12 14:26:14.084443
+7,A,GDPR stands for Global Data Procession Regulation,0,3,2020-04-12 14:26:31.789697,2020-04-12 14:26:31.789697
+8,B,GDPR stands for Gathered Data Protection Recommendations,0,3,2020-04-12 14:26:45.360342,2020-04-12 14:26:45.360342
+9,C,GDPR stands for General Data Protection Regulation,3,3,2020-04-12 14:26:59.748325,2020-04-12 14:26:59.748325
+10,A,Religious belief,0.5,4,2020-04-12 14:27:15.86771,2020-04-12 14:27:15.86771
+11,B,Address,0.5,4,2020-04-12 14:27:29.198988,2020-04-12 14:27:29.198988
+12,C,Name,0.5,4,2020-04-12 14:27:41.590968,2020-04-12 14:27:41.590968
+13,D,Academic records,0.5,4,2020-04-12 14:28:00.225051,2020-04-12 14:28:00.225051
+14,E,Medical data,0.5,4,2020-04-12 14:28:14.059399,2020-04-12 14:28:14.059399
+15,F,Political opinions,0.5,4,2020-04-12 14:28:31.865375,2020-04-12 14:28:31.865375
+16,A,Encryption is the principle of sending data via a safe underground connection making it difficult to access,0,5,2020-04-12 14:28:52.43116,2020-04-12 14:28:52.43116
+40,E,Only when my account has been hacked/someone has gained access to my account,3,10,2020-04-12 14:53:52.85666,2020-04-12 14:53:52.85666
+18,B,In encryption plain text is being encoded to make the text uninterpretable. It can be decoded using a key,3,5,2020-04-12 14:40:38.321708,2020-04-12 14:40:38.321708
+19,C,Encryption derives from a technique used by the ancient Greek who rearranged the letters of their messages making them harder to read by strangers,1,5,2020-04-12 14:44:31.040962,2020-04-12 14:44:31.040962
+20,D,Encryption refers to a mathematical formula which uses logarithms to assign each word a number. This way data can be transmitted faster,0,5,2020-04-12 14:44:44.622925,2020-04-12 14:44:44.622925
+21,A,A keylogger is a machine that assists which grammar and spelling. It predicts the words you are trying to write and completes them for you,0,6,2020-04-12 14:45:31.453883,2020-04-12 14:45:31.453883
+22,B,A keylogger is a piece of software that stores your passwords so you don’t have to remember them,0,6,2020-04-12 14:45:59.599957,2020-04-12 14:45:59.599957
+23,C,A keylogger refers to the malicious action of recording input made via a keyboard without the user knowing. This way passwords or messages can be restored,3,6,2020-04-12 14:46:23.814701,2020-04-12 14:46:23.814701
+24,D,A keylogger is someone who edits the inputs made via a keyboard. This is most commonly used to make users visit fraudulent websites they didn’t intend to visit,0,6,2020-04-12 14:46:44.264806,2020-04-12 14:46:44.264806
+25,A,"In a denial of service attack the attacker puts up a fake duplication of a legitimate website. He replaces the original website with an error message prompting the user to visit the new, malicious, website",0,7,2020-04-12 14:47:34.048164,2020-04-12 14:47:34.048164
+26,B,In a denial of service attack an attacker tells users that their internet is currently unavailable due to a system fault. Most users believe this and follow the attacker’s invitation to a fraudulent repair service asking for personal and financial information,0,7,2020-04-12 14:47:52.968513,2020-04-12 14:47:52.968513
+27,C,A denial of service attack refers to an attack made by a large number of fake visits to a website. This causes the website to crash resulting in a “denial of service”,3,7,2020-04-12 14:48:08.268569,2020-04-12 14:48:08.268569
+28,A,"No one, I memorise them or use a password manager",3,8,2020-04-12 14:48:27.042493,2020-04-12 14:48:27.042493
+29,B,"No one, I keep them written down in a safe space",2,8,2020-04-12 14:48:45.153538,2020-04-12 14:48:45.153538
+30,C,With my family and close friends,0,8,2020-04-12 14:49:00.67579,2020-04-12 14:49:00.67579
+31,D,"I am not too concerned about this. If someone needs to use my account, I happily share my password with them",0,8,2020-04-12 14:49:19.921891,2020-04-12 14:49:19.921891
+32,A,There is no strong password,2,9,2020-04-12 14:49:33.730455,2020-04-12 14:49:33.730455
+33,B,"A password is stronger if it is harder to guess, e.g. don’t use 12345 or password",3,9,2020-04-12 14:49:53.878504,2020-04-12 14:49:53.878504
+34,C,"A strong password should contain letters, numbers and special characters",2,9,2020-04-12 14:51:00.107268,2020-04-12 14:51:00.107268
+35,D,I am not sure,0,9,2020-04-12 14:51:20.982937,2020-04-12 14:51:20.982937
+36,A,Never,0,10,2020-04-12 14:52:41.979163,2020-04-12 14:52:41.979163
+37,B,Every month,2,10,2020-04-12 14:53:00.217612,2020-04-12 14:53:00.217612
+38,C,Every year,2,10,2020-04-12 14:53:14.522863,2020-04-12 14:53:14.522863
+39,D,Whenever I am instructed to do so by my workplace,3,10,2020-04-12 14:53:33.287526,2020-04-12 14:53:33.287526
+41,A,Only after security breaches,3,11,2020-04-12 14:54:12.718258,2020-04-12 14:54:12.718258
+42,B,I don’t think they need to be changed if you keep them safe,0,11,2020-04-12 14:55:15.334056,2020-04-12 14:55:15.334056
+43,C,Every month,2,11,2020-04-12 14:55:33.530978,2020-04-12 14:55:33.530978
+44,D,Every year,2,11,2020-04-12 14:56:51.083164,2020-04-12 14:56:51.083164
+45,E,As often as possible,0,11,2020-04-12 14:57:11.181154,2020-04-12 14:57:11.181154
+46,A,"Yes, all the time",0,12,2020-04-12 14:57:25.005687,2020-04-12 14:57:25.005687
+47,B,"Yes, sometimes",1,12,2020-04-12 14:57:37.811407,2020-04-12 14:57:37.811407
+48,C,No,3,12,2020-04-12 14:57:50.625317,2020-04-12 14:57:50.625317
+49,A,I do it immediately,3,13,2020-04-12 14:58:05.56021,2020-04-12 14:58:05.56021
+50,B,I wait a few days,3,13,2020-04-12 14:58:18.325281,2020-04-12 14:58:18.325281
+51,C,A couple of weeks,2,13,2020-04-12 14:58:34.418793,2020-04-12 14:58:34.418793
+52,D,I wait until I am really annoyed by it. Maybe 3 months,1,13,2020-04-12 14:58:48.347529,2020-04-12 14:58:48.347529
+53,E,It will take me a long time,0,13,2020-04-12 14:59:01.174391,2020-04-12 14:59:01.174391
+54,F,Probably never,0,13,2020-04-12 14:59:13.693068,2020-04-12 14:59:13.693068
+55,A,I only download software from sources I know and that I trust,3,14,2020-04-12 14:59:46.280361,2020-04-12 14:59:46.280361
+56,B,I look up the source of the software online to make sure I can trust it,2,14,2020-04-12 15:00:23.910625,2020-04-12 15:00:23.910625
+57,C,If the website looks legitimate I am not too concerned,0,14,2020-04-12 15:00:43.933547,2020-04-12 15:00:43.933547
+58,D,I just download the software. I am sure my antivirus software will take care of it,0,14,2020-04-12 15:01:06.464139,2020-04-12 15:01:06.464139
+59,E,I don’t download software and hence don’t know the answer to this,0,14,2020-04-12 15:01:28.222427,2020-04-12 15:01:28.222427
+60,A,Maybe a couple of times,1,15,2020-04-12 15:01:57.599638,2020-04-12 15:01:57.599638
+61,B,I basically only have one password,0,15,2020-04-12 15:02:10.481111,2020-04-12 15:02:10.481111
+62,C,I have a password manager and don’t need to worry about this,3,15,2020-04-12 15:02:27.462451,2020-04-12 15:02:27.462451
+63,D,I never reuse a password,3,15,2020-04-12 15:03:33.384701,2020-04-12 15:03:33.384701
+64,E,I only reuse my passwords for non-important services where I don’t store personal information,2,15,2020-04-12 15:03:46.157434,2020-04-12 15:03:46.157434
+65,A,I give them to friends or family,1,16,2020-04-12 15:04:02.981955,2020-04-12 15:04:02.981955
+66,B,I sell it online,1,16,2020-04-12 15:04:14.032826,2020-04-12 15:04:14.032826
+67,C,I return it to the company I bought it from,3,16,2020-04-12 15:04:26.811797,2020-04-12 15:04:26.811797
+68,D,I bring it to a recycling site,2,16,2020-04-12 15:04:40.256287,2020-04-12 15:04:40.256287
+69,A,Nothing,0,17,2020-04-12 15:05:02.627505,2020-04-12 15:05:02.627505
+70,B,I make sure to factory reset them,3,17,2020-04-12 15:05:15.094177,2020-04-12 15:05:15.094177
+71,C,I manually delete my files,1,17,2020-04-12 15:05:30.00432,2020-04-12 15:05:30.00432
+72,A,I don’t use cloud services and don’t know the answer to this,0,18,2020-04-12 15:06:07.734114,2020-04-12 15:06:07.734114
+73,B,Your data is stored in a remote location out of your control. The cloud company is entirely responsible for the data’s safety,1.5,18,2020-04-12 15:06:38.481124,2020-04-12 15:06:38.481124
+74,C,Governments can legally request data from cloud services. It is up to the service provider not to you to grant this access,1.5,18,2020-04-12 15:06:51.694779,2020-04-12 15:06:51.694779
+75,D,There is no difference between cloud storage and other storage services,2,18,2020-04-12 15:07:06.343979,2020-04-12 15:07:06.343979
+76,A,A tool that helps you generate new passwords,1,19,2020-04-12 15:07:26.875444,2020-04-12 15:07:26.875444
+77,B,A tool that stores passwords for you,1,19,2020-04-12 15:08:30.527734,2020-04-12 15:08:30.527734
+78,C,A tool that helps you to easily access your passwords on different devices,1,19,2020-04-12 15:08:54.778154,2020-04-12 15:08:54.778154
+79,A,"Yes, on all my devices",3,20,2020-04-12 15:09:18.120371,2020-04-12 15:09:18.120371
+80,B,"Yes, on some of my devices",2,20,2020-04-12 15:09:35.242323,2020-04-12 15:09:35.242323
+81,C,"No, I probably should",1,20,2020-04-12 15:09:47.742166,2020-04-12 15:09:47.742166
+82,D,"No, I don’t know why this would be necessary",0,20,2020-04-12 15:10:01.350389,2020-04-12 15:10:01.350389
+83,A,A tool to hack other people’s passwords,0,21,2020-04-12 15:10:21.108156,2020-04-12 15:10:21.108156
+84,B,A tool to find out if your email address has been involved in any data breaches,2,21,2020-04-12 15:10:42.572392,2020-04-12 15:10:42.572392
+85,C,A tool that provides a list of secure passwords for you to use,1,21,2020-04-12 15:13:01.566675,2020-04-12 15:13:01.566675
+86,D,A tool to find out who has viewed your social media accounts,0,21,2020-04-12 15:13:20.997673,2020-04-12 15:13:20.997673
+87,A,I get in touch with my bank to find out if I have been affected and wait for further instructions,1,22,2020-04-12 15:14:19.339394,2020-04-12 15:14:19.339394
+88,B,I reset my password and pins and order a new bank card,3,22,2020-04-12 15:14:33.193302,2020-04-12 15:14:33.193302
+89,C,I am sure they will let me know if I have been affected and if I need to do anything,0,22,2020-04-12 15:14:47.288256,2020-04-12 15:14:47.288256
+90,A,I don’t back up my data,0,23,2020-04-12 15:15:01.89022,2020-04-12 15:15:01.89022
+91,B,It depends on the type of data. I back up some of my data on a hard drive and/or on a cloud storage,3,23,2020-04-12 15:15:35.348721,2020-04-12 15:15:35.348721
+92,C,I back up all of my data on a hard drive and/or on a cloud storage,3,23,2020-04-12 15:15:53.699815,2020-04-12 15:15:53.699815
+93,D,I don’t know,0,1,2020-05-21 14:08:51.7832,2020-05-21 14:08:51.7832
+94,D,I don’t know,0,2,2020-05-21 14:09:02.57196,2020-05-21 14:09:02.57196
+95,D,I don’t know,0,3,2020-05-21 14:09:14.618498,2020-05-21 14:09:14.618498
+96,G,I don’t know,0,4,2020-05-21 14:09:29.876834,2020-05-21 14:10:02.568188
+97,E,I don’t know,0,5,2020-05-21 14:09:41.921691,2020-05-21 14:10:16.360924
+98,E,I don’t know,0,6,2020-05-21 14:10:27.967374,2020-05-21 14:10:27.967374
+99,D,I don’t know,0,7,2020-05-21 14:10:39.285739,2020-05-21 14:10:39.285739
+101,D,I don’t know,0,19,2020-05-21 14:12:11.770276,2020-05-21 14:12:11.770276
+102,E,I don’t know,0,21,2020-05-21 14:12:26.779759,2020-05-21 14:12:26.779759
+103,E,I keep them,3,16,2020-05-21 15:04:26.811797,2020-05-21 15:04:26.811797
+104,E,"No, my device has anti virus software build in",3,20,2020-05-21 15:09:18.120371,2020-05-21 15:09:18.120371

@@ -1,0 +1,22 @@
+- content_for :title, 'My Account'
+
+.container.full
+  .row.full
+    .col-md-7.bg-light.py-5.d-flex.align-items-center.justify-content-center
+      = image_tag 'logo-large.png', alt: 'Logo', width: 150, class: 'img-fluid'
+      %span
+        %h1.title Securium
+        %h6.title where security meets simplicity
+    .col-md-5.bg-dark-2.text-light.py-5.px-md-5.d-flex.flex-column.justify-content-between
+      %h6
+        .mb-2.font-weight-bold Your Account Information:
+        .mb-2 Username: #{@user.username}
+        .mb-3 Email Address: #{@user.email}
+        = link_to 'Edit my Details', :edit_user_registration, class: 'btn btn-primary mr-3 mb-2'
+        = link_to 'Quiz Results', :results, class: "btn btn-primary mb-2"
+      %h6.mt-5
+        .mb-3.font-weight-bold Change the website's colour scheme:
+        = link_to 'Normal Theme', normal_theme_path, method: :get, class: 'btn mr-3 btn-secondary mb-2'
+        = link_to 'High Contrast', high_contrast_path, method: :get, class: 'btn btn-outline-secondary mb-2'
+
+      -# = render "devise/shared/links"

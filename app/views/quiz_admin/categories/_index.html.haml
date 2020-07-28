@@ -1,0 +1,5 @@
+.container
+  %h3 Quiz Difficulty
+  = simple_form_for :difficulty, url: update_difficulty_path do |f|
+    = f.input :percent, as: :float, input_html: { value: ENV['QUIZ_DIFFICULTY'].to_s }
+    = f.submit 'Update Difficulty', class: 'btn btn-primary'

@@ -1,0 +1,22 @@
+.category-title.collapse.show.row.align-items-center
+  .col
+    %h3.mb-0= @category.name
+  .col-auto
+    %button.btn.btn-primary{ data: { toggle: :collapse, target: '.category-title' } }
+      = fa_icon 'edit'
+      %span Edit
+    = link_dynamic @category, '#', method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', title: 'Remove category'  do
+      = fa_icon 'trash'
+.category-title.collapse
+  = render 'quiz_admin/categories/inline_form'
+%hr.mb-4
+.row
+  .col
+    %h5.test-muted Max Easy Score
+    %h4= @category.easy_max_score
+  .col
+    %h5.test-muted Max Hard Score
+    %h4= @category.hard_max_score
+  .col
+    %h5.test-muted Max Total Score
+    %h4= @category.total_max_score

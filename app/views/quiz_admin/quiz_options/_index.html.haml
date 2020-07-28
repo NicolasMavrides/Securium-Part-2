@@ -1,0 +1,20 @@
+- @options.each do |option|
+  .row.mb-2
+    .col-auto
+      .badge.badge-pill.badge-primary= option.letter
+    .col.pl-0
+      %h5.m-0= option.option
+    .col-auto
+      - edit_link = edit_category_quiz_question_quiz_option_path(@category, @question, option)
+      - remote_target = "#question-#{@question.id}-content .options"
+      = link_dynamic edit_link, remote_target, class: 'btn btn-sm btn-primary mr-1', title: 'Edit option' do
+        = fa_icon 'edit'
+      = link_dynamic [@category, @question, option], '#', method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger', title: 'Remove option' do
+        = fa_icon 'trash'
+      %p.m-0.mt-2.small.text-center
+        %b Score: 
+        %span=option.score
+  %hr.bg-dark-2
+- new_link = new_category_quiz_question_quiz_option_path(@category, @question)
+- remote_target = "#question-#{@question.id}-content .options"
+= link_dynamic 'New Option', new_link, remote_target, class: 'btn btn-outline-light mb-3'

@@ -1,0 +1,10 @@
+= simple_form_for(@category, remote: true) do |f|
+  .row
+    .col-md= f.input :name, label: false
+    .col-auto
+      = f.button :submit, 'Update'
+      - if !@category.new_record?
+        %button.btn.btn-outline-dark-1{ type: :button, data: { toggle: :collapse, target: '.category-title' } }
+          = fa_icon 'times'
+
+    

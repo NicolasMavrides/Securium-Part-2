@@ -1,0 +1,11 @@
+development: &defaults
+  adapter: postgresql
+  min_messages: warning
+  host: epi-stu-gen-dbs1-pg.shef.ac.uk
+  username:
+  password:
+  database:
+
+test:
+  <<: *defaults
+  database: 

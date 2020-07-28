@@ -1,0 +1,24 @@
+@import 'variables'
+
+@import 'bootstrap/functions'
+@import 'bootstrap/variables'
+@import 'bootstrap/mixins'
+
+.login-content
+    
+    position: relative
+    
+    @include media-breakpoint-up(lg)
+        height: 100vh
+        min-height: 600px
+
+    @include media-breakpoint-down(md)
+        .container
+            max-width: 100% !important
+
+    .login-form
+        max-width: 250px
+        margin: auto
+    fieldset
+        margin-bottom: 0
+    

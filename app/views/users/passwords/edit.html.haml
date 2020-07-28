@@ -1,0 +1,30 @@
+.container.h-100
+  .row.h-100
+    .col-md-7.bg-light.py-5.d-flex.align-items-center.justify-content-center
+      = image_tag 'logo-large.png', alt: 'Logo', width: 150, class: 'img-fluid'
+      %span
+        %h1.mb-0 Securium
+        %h6 where security meets simplicity
+    .col-md-5.bg-dark-2.text-light.py-5.px-md-5
+      .row.h-100
+        .col-md-12.align-self-center
+          %h2 Change your password
+          = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :put}) do |f|
+            = f.error_notification
+            = f.input :reset_password_token, as: :hidden
+            = f.full_error :reset_password_token
+            .form-inputs
+              =  f.input :password,
+                          label: "New password",
+                          required: true,
+                          autofocus: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" }
+              = f.input :password_confirmation,
+                          label: "Confirm your new password",
+                          required: true,
+                          input_html: { autocomplete: "new-password" }
+            .form-actions.d-flex.justify-content-between.align-items-center
+              = f.button :submit, "Change my password"
+
+      -# = render "devise/shared/links"

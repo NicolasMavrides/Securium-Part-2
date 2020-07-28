@@ -1,0 +1,5 @@
+%h1.mb-3 Editing recommendation
+
+- content_for :back_button do
+  = link_dynamic 'Back', category_recommendation_path(@category, @recommendation, difficulty: params[:difficulty]), '#recommendation-content', class: 'btn btn-secondary', remote: true
+= render 'form'

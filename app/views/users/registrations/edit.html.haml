@@ -1,0 +1,35 @@
+- content_for :title, 'Edit Details'
+
+.container
+  .row.h-100
+    .col-md-7.bg-light.py-5.d-flex.align-items-center.justify-content-center
+      = image_tag 'logo-large.png', alt: 'Logo', width: 150, class: 'img-fluid'
+      %span
+        %h1.title Securium
+        %h6.title where security meets simplicity
+    .col-md-5.bg-dark-2.text-light.py-5.px-md-5.align-self-center
+      %h2 Edit #{resource_name.to_s.humanize}
+      %br
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = f.error_notification
+        = f.input :email, required: true, autofocus: true
+
+        .form-inputs
+          = f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false,
+                      input_html: { autocomplete: "new-password" }
+          = f.input :password_confirmation,
+                      required: false,
+                      input_html: { autocomplete: "new-password" }
+          = f.input :current_password,
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" }
+        .form-actions.d-flex.justify-content-between.align-items-center
+          = f.button :submit, "Update"
+
+      %h4.mt-5 Unhappy?
+      = link_to "Delete my Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger'
+
+      -# = render "devise/shared/links"

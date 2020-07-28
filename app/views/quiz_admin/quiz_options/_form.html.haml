@@ -1,0 +1,11 @@
+= simple_form_for([@category, @question, @option], remote: true, html: { class: 'mb-3' }) do |f|
+  = f.hidden_field :quiz_question_id, value: @question.id 
+  .row
+    .col-md= f.input :letter
+    .col-md= f.input :score
+  = f.input :option
+  = f.button :submit, action_name == 'edit' ? 'Update option' : 'Create option'
+  
+  - options_link = category_quiz_question_quiz_options_path(@category, @question)
+  - remote_target = "#question-#{@question.id}-content .options"
+  = link_dynamic 'Back', options_link, remote_target, class: 'btn btn-outline-light'

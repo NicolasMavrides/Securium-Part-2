@@ -1,0 +1,78 @@
+- content_for :title, 'Breaches'
+
+.container.full
+  .row.align-items-stretch.full
+    .col-md-5.bg-dark-2.text-light.mb-4
+      .row.mt-3.align-items-center
+        .col.heading Account Breaches
+        .col-auto
+          %button.btn.badge.badge-pill.badge-primary{"data-target" => "#helpModal", "data-toggle" => "modal", :type => "button", style: 'font-size: 15px', title: 'Help'} ?
+      #helpModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "helpModalTitle", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog.modal-dialog-centered{:role => "document"}
+          .modal-content
+            .modal-header
+              %h5#helpModalLongTitle.modal-title.text-dark Data Scraper Help
+              %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"} ×
+            .modal-body
+              %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/9S2FIw9-ffA", :width => "460"}
+            .modal-footer
+              %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+      .p.mb-3 Our account breaches tool will help you to understand the websites you have logged in to that have been part of data breaches and leaks.
+      .p.mb-3 Using this information, you can then change your password and revoke permissions if necessary.
+      .p Enter your email address and we will check if it has been associated with any known online breaches.
+    .col-md-7.bg-light.text-center.pad
+      = simple_form_for :search, url: breaches_path, html: { id: 'email_form', method: :post }  do |f|
+        %p.text-danger
+          #error
+        .form-inputs
+          = f.input :email
+        .form-actions
+          = f.button :submit, 'Search'
+      - if @breach_data.nil? && @search_performed == true
+        .alert.alert-success{:role => "alert"}
+          "Good News! Your email has not been involved in any breaches, as far as we can tell."
+
+      - elsif (!@breach_data.nil? && @search_performed == true)
+        .alert.alert-danger{:role => "alert"}
+          Oh no! It appears your email was involved in one or more breaches! Please review the results below.
+
+        - @breach_data.each do |breach|
+          .result-item
+            .row
+              .col-sm-3
+                %img{:src => breach['LogoPath'], :width => "100"}
+              .col-sm-9
+                %h4 #{breach['Title']} - #{breach['Domain']}
+                %p= sanitize breach['Description']
+                %p
+                  This breach occurred on
+                  %strong #{Date.parse(breach['BreachDate']).strftime("%d/%m/%Y") }
+                  and affected
+                  %strong #{number_to_human(breach['PwnCount'])}
+                  accounts.
+                %p
+                  %strong Data known to have been compromised:
+                %ul
+                - breach['DataClasses'].each do |data_type|
+                  %li.DataClasses
+                    = data_type
+            %hr
+
+      - else
+        - # Show nothing as search not yet made...
+
+      .wrap-button
+        %a#seeMore.btn.btn-primary{:href => "#"} See More Results
+
+:javascript
+    $('#helpModal').on('hide.bs.modal', function(e) {
+      var $if = $(e.delegateTarget).find('iframe');
+      var src = $if.attr("src");
+      $if.attr("src", '/empty.html');
+      $if.attr("src", src);
+    });
+
+= stylesheet_link_tag 'breaches'
+= javascript_include_tag 'hibp_form_validation'
+= javascript_include_tag 'load_more'

@@ -1,0 +1,21 @@
+%head
+  %title Securium - #{content_for(:title)}
+  %meta{ name: 'description', content: 'Securium - No matter how much you know about online security - we provide the right services for your experience and help you to be safe online!' }
+  %meta{ name: 'keywords', content: 'Security, Online, Protect, Quiz, Safe, Internet, Personal Information, Cyber' }
+  %meta{ name: 'og:title', content: 'Secrium - Improve your online Security Today!' }
+  %meta{ name: 'og:description', content: 'Take our quick quiz to determine your knowledge on online security and get feedback tailored to decrease your risk factors' }
+  %meta{ name: 'og:url', content: 'https://team02.demo1.genesys.shefcompsci.org.uk' }
+  %meta{ name: 'og:type', content: 'website' }
+  %meta{ name: 'og:image', content: 'https://team02.demo1.genesys.shefcompsci.org.uk/assets/logo-cad57bc7635ae6bb79652cbecd718c5098130cc2e6adb2ea8e97481cc306ae12.png' }
+  %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+  %meta{ name: 'robots', content: 'index, follow' }
+  %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge' }
+  - if cookies[:high_contrast]
+    = stylesheet_link_tag 'application_hc', media: 'all', 'data-turbolinks-track': 'reload'
+  - else
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+  %link{ href: 'https://fonts.googleapis.com/css?family=Roboto:400,300', rel: 'stylesheet', type: 'text/css' }
+  %link{ href: 'https://cdn.quilljs.com/1.3.6/quill.snow.css', rel: 'stylesheet', type: 'text/css' }
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = javascript_include_tag 'https://cdn.quilljs.com/1.3.6/quill.js'
+  = csrf_meta_tags

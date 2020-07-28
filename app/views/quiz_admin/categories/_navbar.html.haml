@@ -1,0 +1,13 @@
+%ul#categories-nav.nav.flex-column{ data: { remote_target: '#recommendations-content' } }
+  = link_dynamic 'Overview', categories_path, '#category-content', class: "nav-link #{'active disabled' if ['index', 'destroy'].include? action_name}"
+  .row.align-items-center.mt-4
+    .col
+      %h5 Categories
+    .col-auto
+      - link_class = "btn btn-outline-primary hide #{'active disabled' if action_name == 'new'}"
+      = link_dynamic 'New', new_category_path, '#category-content', class: link_class
+  %hr.w-100
+  - Category.order(name: :asc).each do |category|
+    %li.nav-item
+      - link_class = "nav-link #{'active disabled' if @category && @category.id == category.id}"
+      = link_dynamic category.name, category, '#category-content', class: "nav-link #{link_class}"

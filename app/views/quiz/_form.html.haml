@@ -1,0 +1,15 @@
+= simple_form_for @answer, method: :post, url: next_path do |f|
+  = f.hidden_field :quiz_question_id, value: @question.id.to_s
+  = f.hidden_field :category_id, value: @category_id.to_s
+  = f.hidden_field :difficult, value: @question.difficult.to_s
+
+  - if @question.multiple_select
+    = f.input :option, as: :check_boxes, collection: @question.quiz_options.order('letter ASC'), value_method: :id, label_text: false
+  - else
+    = f.input :option, required: true, as: :radio_buttons, collection: @question.quiz_options.order('letter ASC'), value_method: :id, label_text: false
+
+  .row.justify-content-end
+    - if @last
+      .col-md-auto= f.submit 'Submit Section', class: 'btn btn-block btn-primary'
+    -else
+      .col-md-auto= f.submit 'Next', class: 'btn btn-block btn-primary'

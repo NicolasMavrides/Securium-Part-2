@@ -1,0 +1,171 @@
+@import 'variables_hc'
+
+@import 'bootstrap/functions'
+@import 'bootstrap/variables'
+@import 'bootstrap/mixins'
+
+html
+  height: 100%
+
+body
+  height: 100%
+  background-color: $color-dark-2
+  font-family: Helvetica
+  &.page-body
+    background: #fff
+
+@media (min-width: $screen-md-min)
+  body.no-touch
+    background-size: cover
+
+#main-nav
+  &.touch-nav
+    margin-top: -120px
+    transition: margin-top 0.2s linear
+  .navbar-brand
+    padding-top: 5px
+
+// set border to active page on navbar
+@include media-breakpoint-up(lg)
+  .nav-link.active
+    border-bottom: 2px solid map-get($map: $custom-theme, $key: 'primary')
+
+.lead
+  font-size: floor(($font-size-base * 1.2))
+  strong
+    font-weight: 300
+
+@media (min-width: $screen-sm-max)
+  .lead
+    font-size: floor(($font-size-base * 1.4))
+
+.pad
+  padding-bottom: 90px
+
+.full
+  height: 100%
+    
+  @include media-breakpoint-up(lg)
+    min-height: 450px
+
+.title
+  font-family: "PT Serif Caption"
+
+.heading
+  font-size: 26px
+  font-weight: bold
+
+.sub-heading
+  color: #7F878D
+
+.icon
+  width: 90%
+
+@mixin content
+  border-top: 0px solid #333
+
+.user-content
+  @include content
+
+  background: $color-dark-2
+  padding-top: 65px
+  padding-bottom: 75px
+
+  @include media-breakpoint-up(lg)
+    min-height: 450px
+
+  @include media-breakpoint-down(sm)
+    background: $color-dark-2 !important
+
+.admin-content
+  @include content
+
+  padding-top: 60px
+  padding-bottom: 60px
+  background: $color-light
+
+.login-content
+  @include content
+
+  background: $color-dark-2
+  background: linear-gradient(270deg, $color-dark-2 0%, $color-dark-2 50%, $color-light 50%, $color-light 100%)
+
+  @include media-breakpoint-down(sm)
+    background: $color-dark-2 !important
+
+.section
+  padding: 60px 0
+  position: relative
+  z-index: 2
+  &.section-alt
+    background-color: #f7f7f7
+  .page-header
+    margin-top: 0
+    h2
+      margin-bottom: 0
+
+@media (max-width: $screen-sm-max)
+  .section
+    padding: 40px 0
+  h1
+    font-size: 34px
+  h2
+    font-size: 26px
+
+.footer
+  position: relative
+  z-index: 2
+  border-top: 0px solid #eee
+  margin-top: 0
+  background-color: #333
+  color: #eee
+  font-size: 13px
+  h5
+    margin-top: 0
+    margin-bottom: 5px
+  a
+    color: lighten($link-color, 10%)
+  .copyright
+    color: #999
+
+  .uni-logo
+    text-align: right
+    margin-bottom: 20px
+  .footer-links
+    li
+      border-right: 1px solid #666
+      padding-right: 10px
+      &:last-child, &.no-border
+        border-right: none
+        padding-right: 0
+
+.call-to-action
+  text-align: center
+  background-color: #91deff
+  color: #333
+  border: none
+  box-shadow: none
+  font-size: 16px
+  a
+    color: darken($link-color, 10%)
+
+.opacity-link
+  opacity: 0.7
+  &:hover
+    opacity: 1
+
+.well, .alert
+  border-radius: 0
+
+.sign-up-form
+  margin-bottom: 20px
+
+.visits
+  margin-top: 60px
+
+.vertical-line
+  height: 100%
+  border-left: 0.5px solid white
+
+.link-dynamic.disabled.hide
+  display: none

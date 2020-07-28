@@ -1,0 +1,32 @@
+- content_for :title, 'Quiz Start'
+
+.container.full
+  .row.align-items-stretch.full
+    .col-md-5.bg-dark-2.text-light.mb-4
+      .row.mt-3.align-items-center
+        .col.heading Quiz
+        .col-auto
+          %button.btn.badge.badge-pill.badge-primary{"data-target" => "#helpModal", "data-toggle" => "modal", :type => "button", style: 'font-size: 15px', title: 'Help'} ?
+      #helpModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "helpModalTitle", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog.modal-dialog-centered{:role => "document"}
+          .modal-content
+            .modal-header
+              %h5#helpModalLongTitle.modal-title.text-dark Quiz Help
+              %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"} ×
+            .modal-body
+              %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/osyTYv4D7kE", :width => "460"}
+            .modal-footer
+              %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+      .p.mb-3 Our quiz will assess your knowledge and level of understanding on current security protocols and risks.
+      .p Using this information, we will provide you with detailed information on your strongest and weakest areas, as well as helpful tips and recommendations on the best ways to staying secure online.
+    .col-md-7.bg-light.text-center.py-5
+      = link_to @text.to_s, { controller: 'quiz', action: 'question' }, class: 'btn btn-lg btn-primary'
+
+:javascript
+    $('#helpModal').on('hide.bs.modal', function(e) {
+      var $if = $(e.delegateTarget).find('iframe');
+      var src = $if.attr("src");
+      $if.attr("src", '/empty.html');
+      $if.attr("src", src);
+    });

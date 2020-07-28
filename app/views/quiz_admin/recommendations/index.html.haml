@@ -1,0 +1,17 @@
+- content_for :title, 'Recommendations'
+
+.container
+  .page-header
+    %h2 Recommendations
+    %hr
+    .row
+      .col-lg-3
+        %ul#recommendations-nav.nav.flex-column.mb-5{ data: { remote_target: '#recommendations-content' } }
+          %h5.mt-3 Categories
+          %hr.w-100
+          - Category.order(name: :asc).each do |category|
+            %li.nav-item
+              - link_class = "nav-link #{'active disabled' if @category && @category.id == category.id}"
+              = link_dynamic category.name, recommendations_category_path(category), '#difficulties-content', class: "nav-link #{link_class}"
+      #difficulties-content.content-dynamic.col-lg-9
+        = render 'difficulties' if @category

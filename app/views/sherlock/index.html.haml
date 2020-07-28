@@ -1,0 +1,58 @@
+- content_for :title, "Sherlock"
+
+.container.full
+  .row.align-items-stretch.full
+    .col-md-5.bg-dark-2.text-light.mb-4
+      .row.mt-3.align-items-center
+        .col.heading Data Scraper
+        .col-auto
+          %button.btn.badge.badge-pill.badge-primary{"data-target" => "#helpModal", "data-toggle" => "modal", :type => "button", style: 'font-size: 15px', title: 'Help'} ?
+      #helpModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "helpModalTitle", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog.modal-dialog-centered{:role => "document"}
+          .modal-content
+            .modal-header
+              %h5#helpModalLongTitle.modal-title.text-dark Exposure Tool Help
+              %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"} ×
+            .modal-body
+              %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/8mYSxVu2H54", :width => "460"}
+            .modal-footer
+              %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+
+      .p.mb-3 Our data scraper tool will return what data of yours is publicly available online.
+      .p Using this information, you can log into your respective account and remove things that you no longer want to be public.
+    .col-md-7.bg-light.text-center.py-5
+      = simple_form_for :search, url: search_path, method: :post do |f|
+        = f.input :username
+
+        = f.button :submit, 'Search', :onclick=>"loading_message(this.form)"
+        %br
+        = link_to 'Reset', sherlock_index_path
+
+      %br
+      .p
+        %em#placeholder_text
+      .content
+        - if !@hash_result.nil?
+          %table.table.table-bordered.break
+            %thead
+              %tr
+                %th Website
+                %th Profile
+            %tbody
+              - @hash_result.each do |result|
+                %tr
+                  %td= result[:Name]
+                  %td
+                    %a{:href => "#{result[:Link]}"}= result[:Link]
+          %br
+
+:javascript
+    $('#helpModal').on('hide.bs.modal', function(e) {
+      var $if = $(e.delegateTarget).find('iframe');
+      var src = $if.attr("src");
+      $if.attr("src", '/empty.html');
+      $if.attr("src", src);
+    });
+
+= javascript_include_tag 'sherlock'

@@ -1,0 +1,9 @@
+= simple_form_for([@category, @question], remote: true) do |f|
+  = f.input :question
+  .row
+    .col-auto= f.input :active, form_check_wrapper_html: { class: 'custom' }, wrapper_html: { class: 'check_boxes' }
+    .col-auto= f.input :difficult, form_check_wrapper_html: { class: 'custom' }, wrapper_html: { class: 'check_boxes' }
+    .col-auto= f.input :multiple_select, form_check_wrapper_html: { class: 'custom' }, wrapper_html: { class: 'check_boxes' }
+  = f.association :category, label_method: :name, selected: @category.id
+  = f.button :submit, action_name == 'edit' ? "Update question" : "Create question"
+  = link_dynamic 'Back', @category, '#category-content', class: 'btn btn-outline-dark-1'

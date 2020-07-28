@@ -1,0 +1,20 @@
+%nav.navbar.fixed-top.navbar-dark.bg-dark-2.navbar-expand-lg
+  .container
+    .navbar-header
+      = link_to :root, class: 'navbar-brand scroll' do
+        = image_tag 'logo.png', alt: 'Logo image', height: '40'
+        %span.title Securium
+    %button.navbar-toggler{ aria: { controls: 'navbar-content', expanded: false, label: 'Toggle navigation' }, data: { target: '#navbar-content', toggle: 'collapse' }, type: 'button' }
+      %span.navbar-toggler-icon
+
+    .collapse.navbar-collapse#navbar-content
+      %ul.nav.navbar-nav.navbar-right.ml-auto
+        - if user_signed_in?
+          %li.nav-item= link_to 'Home', :home, class: "scroll nav-link #{'active' if @current_nav_identifier == :home}"
+          %li.nav-item= link_to 'Take the Quiz', :start, class: "scroll nav-link #{'active' if @current_nav_identifier == :quiz_start}"
+          %li.nav-item= link_to 'Dispose your Device', :disposal_map, class: "scroll nav-link #{'active' if @current_nav_identifier == :disposal_map}"
+          %li.nav-item= link_to 'Exposure Search', :exposure, class: "scroll nav-link #{'active' if [:exposure, :breaches, :sherlock].include? @current_nav_identifier}"
+          %li.nav-item= link_to 'My Account', current_user, class: "scroll nav-link #{'active' if ['users', 'registrations'].include? controller_name}"
+          %li.nav-item= link_to 'Log Out', :destroy_user_session, method: :delete, class: "scroll nav-link"
+        - else
+          %li.nav-item= link_to 'Log In', :new_user_session, class: "scroll nav-link"

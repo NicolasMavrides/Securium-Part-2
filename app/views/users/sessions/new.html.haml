@@ -1,0 +1,33 @@
+.container.h-100
+  .row.h-100
+    .col-md-7.bg-light.py-5.d-flex.flex-column.justify-content-center.accordion
+      .d-flex.align-self-center.align-items-center.my-3
+        = image_tag 'logo-large.png', alt: 'Logo', width: 150, class: 'img-fluid'
+        %span
+          %h1.mb-0.title Securium
+          %h6.title where security meets simplicity
+      .collapse.show.align-self-center{ data: { parent: '.accordion' } }
+        = link_to 'Learn more', '#', class: 'btn btn-outline-dark my-3', data: { toggle: 'collapse', target: '#about' }
+      #about.collapse.mx-5{ data: { parent: '.accordion' } }
+        %h4.strong About us
+        %p Securium is here to help you manage your online security. We believe that security shouldn't be scary, and that it should be accessible for everyone to understand.
+        %p We offer a range of services, such as a data scraper to find out what data of yours is available online, as well as a disposal map to find out where to responsibly and safely dispose of your old electronic devices. If you want to gain an understanding on how well you know security, you can even take our quiz with personalised feedback!
+        %p Get started by logging in.
+    .col-md-5.d-flex.flex-column.justify-content-between.bg-dark-2.text-light.py-5
+      .col
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'login-form w-100 mb-5' } ) do |f|
+        .form-inputs
+          = f.input :username, required: false, autofocus: true, input_html: { autocomplete: "username" }
+          = f.input :password, required: false, input_html: { autocomplete: "current-password" }
+        .form-actions.d-flex.justify-content-between.align-items-center
+          = f.button :submit, "Log in"
+          = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      .container.col.px-5
+        .row.align-items-center
+          %h6.col.pr-1.mb-3 Don't have an account yet?
+          .col-auto.pl-1.mb-3= link_to 'Sign Up', :new_user_registration, class: 'btn btn-sm btn-outline-secondary'
+        .row.align-items-center
+          %h6.col Forgot your password?
+          .col-auto= link_to 'Reset Password', :new_user_password, class: 'btn btn-sm btn-outline-secondary'
+
+      -# = render "devise/shared/links"

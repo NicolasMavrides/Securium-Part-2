@@ -1,0 +1,44 @@
+- content_for :title, 'Disposal Map'
+
+.container
+  .row.align-items-stretch
+    .col-md-5.bg-dark-2.text-light.mb-4
+      .row.mt-3.align-items-center
+        .col.heading Disposal Map
+        .col-auto
+          %button.btn.badge.badge-pill.badge-primary{"data-target" => "#helpModal", "data-toggle" => "modal", :type => "button", style: 'font-size: 15px', title: 'Help'} ?
+      #helpModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "helpModalTitle", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog.modal-dialog-centered{:role => "document"}
+          .modal-content
+            .modal-header
+              %h5#helpModalLongTitle.modal-title.text-dark Disposal Map Help
+              %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                %span{"aria-hidden" => "true"} ×
+            .modal-body
+              %iframe{:allow => "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture", :allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/GijXaGBNa28", :width => "460"}
+            .modal-footer
+              %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+      .p.mb-3 Our disposal service will allow you to search for and find responsible disposal services for your devices which you no longer use.
+      .p You can be assured that any data on your devices will be wiped, and that you are doing something good for the environment!
+    .col-md-7.bg-light.text-center.py-5
+      = simple_form_for :map_search, url: map_search_path, method: :post, remote: true do |f|
+        = f.input :location
+        = f.button :submit, 'Search', :onclick=>"loading_message(this.form)"
+        %br
+        = link_to 'Reset', disposal_map_path
+
+      %br
+      %iframe#map.w-100{sandbox: "allow-scripts", height: "480", frameborder: "0", style: "border:0", src: "https://www.google.co.uk/maps/d/u/1/embed?mid=10jKBv0vicrj038cpaxgCNqA41XvB1nAq&ll=#{@default}&z=#{@default_zoom}"}
+
+      .p.small
+        %em Disposal locations currently limited to the UK only
+
+:javascript
+    $('#helpModal').on('hide.bs.modal', function(e) {
+      var $if = $(e.delegateTarget).find('iframe');
+      var src = $if.attr("src");
+      $if.attr("src", '/empty.html');
+      $if.attr("src", src);
+    });
+
+= javascript_include_tag 'maps'

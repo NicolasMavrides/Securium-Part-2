@@ -1,0 +1,31 @@
+- content_for :title, 'Quiz'
+
+-# Quiz Section
+.container
+  .row.align-items-stretch
+    .col-md-5.order-2.order-md-1.bg-dark-2.text-light.py-4.mb-4
+      .h3 Sections
+      %hr.bg-primary
+      - @categories.each do |category|
+        %h5.mt-2{ class: category.id == @question.category.id ? 'text-primary' : 'text-muted' }= category.name
+        - if category.id == @question.category.id && category.name == 'Background Knowledge'
+          .p This category aims to gauge your current understanding of the security landscape. Providing a general overview of security related questions you may have already come across.
+        - if category.id == @question.category.id && category.name == 'Good Daily Practices'
+          .p This category delves deeper into your current online behaviour, aiming to identify areas you may be overlooking security wise.
+        - if category.id == @question.category.id && category.name == 'Precautionary Measures & Making Your Life Easier'
+          .p This category aims to help you to spot future security issues early, before they become a problem.
+    .col-md-7.order-1.order-md-2.bg-light.py-5.px-sm-5
+      - @categories.each do |category|
+        - if category.id == @question.category.id
+          %h5.mt-2{class:'text-primary'}= category.name
+      .h4= @question.question
+      - if @question.multiple_select
+        %i.small Check all that apply
+      - else
+        %i.small Choose the most accurate
+      %br
+      %em.d-none.text-danger#error_text Please select at least one option
+      %hr.my-2
+      .pl-4= render 'form'
+
+= javascript_include_tag 'quiz'

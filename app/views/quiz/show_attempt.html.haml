@@ -1,0 +1,73 @@
+- content_for :title, "Quiz Results - Attempt #{@attempt.id}"
+
+-# Quiz Section
+.container.full
+  .row.align-items-stretch.full
+    .col-md-5.bg-dark-2.text-light.mb-4
+      .heading.mt-3 Quiz Attempt
+      .p.mb-3 Attempt taken on - #{@attempt.created_at.to_date}
+      .text-center
+      = link_to "Back to Attempts", :results, class: 'btn btn-primary'
+    .col-md-7.bg-light.py-4
+      - @answers = @attempt.quiz_answers
+      .mb-3
+        .div.px-3
+          .row
+            .col-12.order-2
+              - overall_score = 0
+              - @categories.each do |category|
+                :ruby
+                  @easy_answers = @answers.easy.where category_id: category.id
+                  @hard_answers = @answers.hard.where category_id: category.id
+                  @easy_score = @easy_answers.sum(:score).to_i
+                  @hard_score = @hard_answers.sum(:score).to_i
+                  @total_score = @hard_score + @easy_score
+                  @easy_percent = ((@easy_score / category.easy_max_score) * 100).floor
+                
+                .row.align-items-center.mt-3
+                  .col
+                    %h4.mb-0= category.name
+                  .col-auto.text-right
+                    %h5.mb-0 Achieved score
+                    - if @easy_percent > ENV['QUIZ_DIFFICULTY'].to_f
+                      = @total_score.to_s + ' out of ' + category.total_max_score.to_s
+                      - overall_score += 100 * @total_score / category.total_max_score
+                    - else
+                      = @easy_score.to_s + ' out of ' + category.easy_max_score.to_s
+                      - overall_score += 100 * @easy_score / category.easy_max_score
+                %hr.row.bg-primary.mb-0{ style: "height: 5px" }
+                - category.quiz_questions.each do |question|
+                  - @attempt_questions = @answers.pluck(:quiz_question_id)
+                  - if @attempt_questions.include? question.id
+                    .card-header.bg-secondary.row.align-items-center
+                      .col
+                        %h4.font-weight-bold.mb-1 Question
+                      .col-auto
+                        %h6.font-weight-light
+                          Maximum Score:
+                          = question.max_score
+                      .col-12
+                        %h5.font-weight-light.mb-0= question.question
+
+                    - @q_answers = @answers.where(quiz_question_id: question.id).order('id ASC')
+                    - @q_answers.each do |answer|
+                      .card-header.row.align-items-center.px-4.py-3
+                        .col
+                          %h5
+                            .badge.badge-primary Selected answer
+                        .col-auto
+                          .small
+                            Score:
+                            = answer.score
+
+                        -# = answer.letter
+                        .col-12.mt-1= answer.option
+            .col-12.order-1
+              - overall_score /= @categories.count
+              .row.align-items-center.mt-3
+                .col
+                  %h4.font-weight-lighter.mb-0 
+                    Overall score:
+                    %span.font-weight-bold #{overall_score.to_i}%
+                .col-auto= link_to 'Delete attempt', @attempt, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+              %hr.row.bg-dark-1.mb-0{ style: "height: 5px" }

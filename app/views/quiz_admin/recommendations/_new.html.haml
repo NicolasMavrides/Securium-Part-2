@@ -1,0 +1,5 @@
+%h1.mb-3 New recommendation
+
+- content_for :back_button do
+  = link_dynamic 'Back', category_recommendations_path(@category), '#recommendations-content', class: 'btn btn-secondary'
+= render 'form'

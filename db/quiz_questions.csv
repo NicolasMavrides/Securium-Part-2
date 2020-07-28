@@ -1,0 +1,24 @@
+﻿id,question,active,difficult,multiple_select,category_id,created_at,updated_at,max_score
+1,What is “Phishing”?,t,f,f,1,2020-04-12 14:07:30.338844,2020-04-12 14:18:31.154673,3
+2,What does “HTTPS” mean?,t,f,f,1,2020-04-12 14:07:43.861987,2020-04-12 14:25:50.548755,3
+3,What does “GDPR” stand for?,t,f,f,1,2020-04-12 14:07:57.337494,2020-04-12 14:26:59.852318,3
+4,Which of the below information classifies as sensitive data according to GDPR?,t,f,t,1,2020-04-12 14:08:08.67407,2020-04-12 14:28:32.003203,3
+5,How does encryption work?,t,t,f,1,2020-04-12 14:08:20.491468,2020-04-12 14:40:38.426281,3
+6,What is a “keylogger”?,t,t,f,1,2020-04-12 14:08:29.101342,2020-04-12 14:46:23.919456,3
+7,What is a “Denial of Service” attack? ,t,t,f,1,2020-04-12 14:08:48.492006,2020-04-12 14:48:08.377487,3
+8,Who do you share your login details with?,t,f,f,2,2020-04-12 14:09:13.815711,2020-04-12 14:48:27.146191,3
+9,What entails a strong password?,t,f,f,2,2020-04-12 14:09:28.065339,2020-04-12 14:49:53.982928,3
+10,How frequently do you change your password?,t,f,f,2,2020-04-12 14:09:43.932068,2020-04-12 14:53:33.391602,3
+11,How often do you think passwords should be changed?,t,f,f,2,2020-04-12 14:09:55.113494,2020-04-12 14:54:12.823439,3
+12,Do you ever use online services on a public/shared computer or public/shared WiFi network?,t,f,f,2,2020-04-12 14:10:12.951451,2020-04-12 14:57:50.733776,3
+13,"If you would get a reminder to update software on your computer today, how long would you wait to install this?",t,t,f,2,2020-04-12 14:10:42.288564,2020-04-12 14:58:05.664282,3
+14,What do you do when you download new software?,t,t,f,2,2020-04-12 14:11:09.051205,2020-04-12 14:59:46.385385,3
+15,"How many times, at most, do you reuse a password?",t,t,f,2,2020-04-12 14:11:26.644535,2020-04-12 15:02:27.570697,3
+16,How do you dispose of your old devices?,t,f,f,3,2020-04-12 14:12:27.221164,2020-04-12 15:04:26.928815,3
+17,What do you do before you dispose of your old devices?,t,f,f,3,2020-04-12 14:14:18.734985,2020-04-12 15:05:15.199966,3
+18,What are potential dangers of storing sensitive information on Cloud storage services (a “cloud” is a network of connected servers),t,f,t,3,2020-04-12 14:14:41.625142,2020-04-12 15:07:06.452034,5
+19,What is a password manager?,t,f,t,3,2020-04-12 14:14:58.557372,2020-04-12 15:08:54.882368,3
+20,Do you use antivirus software?,t,f,f,3,2020-04-12 14:15:19.16343,2020-04-12 15:09:18.224184,3
+21,What is “Have I Been Pwned”?,t,t,t,3,2020-04-12 14:16:14.973287,2020-04-12 19:32:52.124484,3
+22,What do you do if you find out that your bank has had a security leak but you don’t know if you personally have been affected?,t,t,f,3,2020-04-12 14:17:06.760259,2020-04-12 15:14:33.299609,3
+23,How do you back up your data?,t,t,f,3,2020-04-12 14:17:33.41884,2020-04-12 15:15:35.452122,3

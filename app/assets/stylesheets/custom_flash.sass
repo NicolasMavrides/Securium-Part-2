@@ -1,0 +1,15 @@
+@import 'variables'
+@import 'bootstrap/mixins'
+.flash-messages
+  z-index: 800
+  position: fixed
+  top: 64px
+  left: 0
+  right: 0
+  margin: 0
+  padding: 0
+
+
+body.has-environment-notice
+  .flash-messages
+    top: $navbar-height + $environment-notice-height + 1px

@@ -1,0 +1,39 @@
+/* Customized radio buttons for quiz responses */
+.check_boxes > .form-check.custom {
+  padding-left: 30px;
+  margin-bottom: 1em;
+
+  :before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: url('/assets/ic_check_square.png') no-repeat top left;
+    background-size: contain;
+    border-radius: 10%;
+  
+    -webkit-transition: background 0.2s;
+    transition: background 0.2s;
+  } 
+
+  input[type='checkbox'] {
+    opacity: 0;
+
+    &:checked ~ :before {
+      width: 25px;
+      height: 23px;
+      background: url('/assets/ic_check_square_checked.png') no-repeat top left;
+      background-size: contain;
+    }
+
+    &:hover ~ :before {
+      background-color: rgb(228, 228, 228);
+    }
+
+    &:checked:hover ~ :before {
+      background-color: transparent;
+    }
+  }
+}

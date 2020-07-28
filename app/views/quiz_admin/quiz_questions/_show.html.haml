@@ -1,0 +1,34 @@
+.card.bg-dark-1.text-light.mb-3
+  .card-body
+    .row.align-items-center
+      %h4.mb-0.col= @question.question
+      .col-auto
+        = link_dynamic edit_category_quiz_question_path(@category, @question), '#questions-content', class: 'btn btn-sm btn-primary mr-2' do
+          = fa_icon 'edit'
+          %span Edit
+        = link_dynamic [@category, @question], '#', method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger', title: 'Remove question' do
+          = fa_icon 'trash'
+    .row.justify-content-between.align-items-center.mt-2
+      .col-auto
+        - if @question.active
+          %span.badge.badge-success Active
+        - if @question.difficult
+          %span.badge.badge-danger Hard
+        - if @question.multiple_select
+          %span.badge.badge-info Multiple
+      .col-auto
+        %b.text-muted Max score:
+        = @question.max_score
+  
+  - collapsed = @question_expanded ? 'show' : nil
+  .collapse.no-transition.px-3{ class: "collapse-options-#{@question.id} #{collapsed}" }
+    %hr.bg-primary.mt-0
+    - @options = @question.quiz_options.order(letter: :asc)
+    .row
+      .col-12.options.content-dynami.px-4= render 'quiz_admin/quiz_options/index'
+  .collapse{ class: "collapse-options-#{@question.id} #{collapsed ? '' : 'show'}" }
+    %button.btn.btn-block.btn-sm.btn-dark-2{ data: { toggle: 'collapse', target: ".collapse-options-#{@question.id}" }, title: 'Expand options' }
+      = fa_icon 'chevron-down'
+  .collapse{ class: "collapse-options-#{@question.id} #{collapsed}" }
+    %button.btn.btn-block.btn-sm.btn-dark-2{ data: { toggle: 'collapse', target: ".collapse-options-#{@question.id}" } }
+      = fa_icon 'chevron-up'

@@ -1,0 +1,29 @@
+- content_for :title, 'Home'
+
+.container
+  .row.align-items-stretch
+    .col-md-5.bg-dark-2.text-light.py-4
+      = link_to start_path, class: 'btn btn-dark-2 text-left mb-5' do
+        .row.no-gutter
+          .col-auto.col-lg-4.align-self-center= image_tag 'ic_note_list.png', alt: 'Vcard icon', class: 'icon'
+          .col.pl-lg-0
+            .heading Take
+            .p Take our quiz aimed to assess your level of understanding of online security risks, and see recommendations tailored to you﻿.
+
+      = link_to exposure_path, class: 'btn btn-dark-2 text-left mb-5' do
+        .row.no-gutter
+          .col-auto.col-lg-4.align-self-center= image_tag 'ic_vcard.png', alt: 'Vcard icon', class: 'icon'
+          .col.pl-lg-0
+            .heading Explore
+            .p Explore and understand what information of yours is available online, and where it has come from.
+
+      = link_to disposal_map_path, class: 'btn btn-dark-2 text-left mb-5' do
+        .row.no-gutter
+          .col-auto.col-lg-4.align-self-center= image_tag 'ic_map_signs.png', alt: 'Vcard icon', class: 'icon'
+          .col.pl-lg-0
+            .heading Discover
+            .p Discover disposal and recycling services close to you, to make sure you dispose of your unwanted devices safely.
+
+    .col-md-7.bg-light.text-center.py-4
+      %a.twitter-timeline{"data-theme" => "light", :href => "https://twitter.com/Secur1um?ref_src=twsrc%5Etfw"} Tweets by Secur1um
+      %script{:async => "", :charset => "utf-8", :src => "https://platform.twitter.com/widgets.js"}

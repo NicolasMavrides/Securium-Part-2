@@ -1,0 +1,24 @@
+.container.h-100
+  .row.h-100
+    .col-md-7.bg-light.py-5.d-flex.align-items-center.justify-content-center
+      = image_tag 'logo-large.png', alt: 'Logo', width: 150, class: 'img-fluid'
+      %span
+        %h1.mb-0 Securium
+        %h6 where security meets simplicity
+    .col-md-5.align-self-center.bg-dark-2.text-light.py-5.px-sm-5
+      %h2 Sign Up
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :username, required: true, autofocus: true, input_html: { autocomplete: "username" }
+          = f.input :email, requred: true, autofocus: true, input_html: { autocomplete: "email" }
+          = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }
+          = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }
+        .form-actions.row.align-items-center
+          .col-auto= f.button :submit, "Sign Up"
+          .col.text-sm-right
+            %span Already have an account?
+            = link_to 'Log in', :new_user_session, class: 'text-primary'
+          -# = f.input :remember_me, as: :boolean, class: 'mr-2' if devise_mapping.rememberable?
+
+      -# = render "devise/shared/links"

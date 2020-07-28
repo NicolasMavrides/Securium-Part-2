@@ -1,0 +1,21 @@
+= simple_form_for([@category, @recommendation], url: @form_url, remote: true) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col
+        = f.input :percentage
+      .col
+        = f.input :difficulty, as: :select, collection: { 'Standard': 1, 'Hard': 2 }, selected: params[:difficulty], disabled: true
+        = f.hidden_field :difficulty, value: params[:difficulty]
+    
+    = f.association :category, label_method: :name, selected: @category.id, disabled: true
+    = f.hidden_field :category_id, value: @category.id
+    
+    = f.hidden_field :description 
+    = f.label :description
+    .quill-editor.mb-3.bg-white{ style: 'min-height: 150px' }
+      = html_only @recommendation.description
+  .form-actions.nav-dynamic{ data: { remote_target: '#recommendation-content' } }
+    = f.button :submit
+    = yield :back_button

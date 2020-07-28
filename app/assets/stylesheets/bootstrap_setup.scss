@@ -1,0 +1,15 @@
+@import "variables";
+
+$theme-colors: $custom-theme;
+
+@import "bootstrap";
+
+// Source: https://github.com/rafaelfranca/simple_form-bootstrap
+@import "simple_form-bootstrap/simple_form-bootstrap";
+
+// Fix required until Bootstrap > 4.1.0 is released
+.form-check-inline, .form-check {
+  .collection_radio_buttons, .collection_check_boxes {
+    margin-bottom: 0px
+  }
+}

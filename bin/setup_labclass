@@ -1,0 +1,5 @@
+#! /bin/bash
+
+bundle install
+cp config/database{_sample-sqlite,}.yml
+bundle exec rake db:create db:migrate db:seed

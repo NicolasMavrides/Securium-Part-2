@@ -1,0 +1,13 @@
+//= require jquery
+//= require jquery_ujs
+//= require jquery.quickfit
+//= require ajax_setup
+//= require ajax_modal
+//= require bootstrap
+//= require flash_message
+//= require visibility_map
+//= require ajax_modal
+//= require progress_ring
+//= require recommendations
+//= require loading_filler
+//= require dynamic_content

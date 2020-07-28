@@ -1,0 +1,19 @@
+!!!
+%html
+  = render 'layouts/head'
+  = favicon_link_tag 'favicon_32x32.png'
+
+  %body.no-touch{ data: { spy: :scroll, target: '#main-nav' } }
+    -# = render 'layouts/environment_notice'
+    .flash-messages
+      = render 'layouts/flash_messages'
+    - user_type = ('admin' if admin_signed_in?) || 'user'
+    - show_navbar = user_signed_in? || admin_signed_in? || controller_name == 'pages'
+    
+    = render "layouts/#{user_type}/navbar" if show_navbar
+    - user_type = controller_name == 'pages' ? 'user' : user_type
+    #content{ class: "#{show_navbar ? user_type : 'login'}-content" }
+      = yield
+
+    = render 'layouts/footer'
+

@@ -1,0 +1,25 @@
+- content_for :title, 'Quiz Results - Attempts'
+
+-# Quiz Section
+.container.full
+  .row.align-items-stretch.full
+    .col-md-5.bg-dark-2.text-light.mb-4
+      .heading.mt-3 Quiz Attempts
+      .p.mb-3 You have taken the quiz #{@quiz_attempts.size} time(s).
+    .col-md-7.bg-light.py-4
+      - count = @quiz_attempts.count + 1
+      - @quiz_attempts.each do |quiz_attempt|
+        - @answers = quiz_attempt.quiz_answers
+        .row.mb-4
+          .col
+            = link_to quiz_attempt, class: 'btn btn-lg btn-block btn-light-1', title: 'View attempt' do
+              .row.align-items-center.text-left
+                .col
+                  %h5.m-0.font-weight-bold Attempt #{count-=1}
+                .col-auto
+                  %h6.m-0= quiz_attempt.created_at.to_date
+          .col-auto.pl-0
+            = link_to quiz_attempt, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', title: 'Delete attempt' do
+              = fa_icon 'trash'
+      - if @quiz_attempts.count == 0
+        .alert.alert-info No quiz attempts to display

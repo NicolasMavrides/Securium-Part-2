@@ -1,0 +1,6 @@
+.nav.nav-fill
+  .nav-item= link_dynamic 'Standard', category_recommendations_path(@category, difficulty: 1), '#recommendations-content', class: "nav-link #{'active disabled' if params[:difficulty].to_i == 1}"
+  .nav-item= link_dynamic 'Hard', category_recommendations_path(@category, difficulty: 2), '#recommendations-content', class: "nav-link #{'active disabled' if params[:difficulty].to_i == 2}"
+.row.mt-3
+  #recommendations-content.content-dynamic.col-12
+    = render 'index' if params[:difficulty]

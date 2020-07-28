@@ -1,0 +1,43 @@
+- content_for :title, 'Quiz Results'
+
+-# Quiz Section
+.container
+  .row
+    - colors = ['#8500DC', '#db7c26', '#49B506']
+    - overall_score = 0
+    .col-md-7.order-2.bg-light
+      - @categories.each do |category|
+        :ruby
+          @easy_answers = @answers.easy.where(category_id: category.id)
+          @hard_answers = @answers.hard.where(category_id: category.id)
+          @easy_score = @easy_answers.sum(:score)
+          @hard_score = @hard_answers.sum(:score)
+          @easy_percent = ((@easy_score / category.easy_max_score) * 100).floor
+          @total_percent = (((@hard_score + @easy_score) / category.total_max_score) * 100).floor
+          @difficulty = @easy_percent > ENV['QUIZ_DIFFICULTY'].to_f ? 2 : 1
+          @percent = @difficulty == 2 ? @total_percent : @easy_percent
+          @recommendation = Recommendation.find_by_percentage(
+            category_id: category.id, 
+            difficulty: @difficulty, 
+            percentage: @percent
+          )
+          overall_score += @percent / @categories.count
+        
+        %h4.mt-4= category.name
+        %hr
+
+        .row
+          .col.mt-3.pl-4= html_only @recommendation.description if @recommendation
+          .col-auto
+            %progress-ring{ stroke: 15, radius: 100, progress: "#{@percent}", color: colors.rotate![0] }
+        %hr.row.bg-dark-2.my-0{ style: 'height: 20px; ' }
+    .col-md-5.order-1.bg-dark-2.text-light.text-center.my-3
+      .heading Overall score
+      %progress-ring{ stroke: 15, radius: 100, progress: "#{overall_score}", color: colors.rotate![0] }
+      .p.mb-5
+        Well done! You have successfuly completed the quiz!
+      .p.mb-5
+        View your overall score above, and your score for the individual sections on the right, along with some
+        personal feedback!
+
+        

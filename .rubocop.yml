@@ -1,0 +1,115 @@
+Bundler/OrderedGems:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/SymbolArray:
+  EnforcedStyle: brackets
+Style/HashSyntax:
+  EnforcedStyle: no_mixed_keys
+Style/EmptyMethod:
+  Enabled: false
+Style/RedundantBegin:
+  Enabled: false
+Style/RescueModifier:
+  Enabled: false
+Style/RescueStandardError:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+
+Layout/FirstArgumentIndentation:
+  Enabled: false
+Layout/TrailingEmptyLines:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+Layout/LineLength:
+  Max: 160
+  Exclude:
+    - 'config/*'
+    - 'config/*/*'
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: no_space
+
+Metrics/ClassLength:
+  Max: 300
+Metrics/BlockLength:
+  Max: 100
+  Exclude:
+    - 'spec/*'
+    - 'spec/*/*'
+    - 'db/schema.rb'
+Metrics/MethodLength:
+  Max: 50
+Metrics/AbcSize:
+  Max: 110
+Metrics/PerceivedComplexity:
+  Max: 12
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Style/BlockComments:
+  Exclude:
+    - 'spec/*'
+    - 'spec/*/*'
+Style/ExpandPathArguments:
+  Exclude:
+    - 'spec/*'
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/*'
+    - 'app/controllers/*/*'
+    - 'spec/*'
+Style/NumericLiterals:
+  Exclude:
+    - 'db/schema.rb'
+Style/SymbolProc:
+  Exclude:
+    - 'db/migrate/*'
+    - 'app/controllers/*'
+Style/RedundantSelf:
+  Exclude:
+    - 'app/models/user.rb'
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/services/standard_responder_spec.rb'
+Style/WordArray:
+  Exclude:
+    - 'app/controllers/quiz_admin/categories_controller.rb'
+Style/SafeNavigation:
+  Exclude:
+    - 'app/controllers/quiz_controller.rb'
+Style/TernaryParentheses:
+  Exclude:
+    - 'app/controllers/sherlock_controller.rb'
+Style/IfUnlessModifier:
+  Exclude:
+    - 'app/controllers/quiz_controller.rb'
+Style/ParallelAssignment:
+  Exclude:
+    - 'app/helpers/application_helper.rb'
+Style/ConditionalAssignment:
+  Exclude:
+    - 'app/controllers/quiz_admin/quiz_options_controller.rb'
+Style/ClassVars:
+  Exclude:
+    - 'app/controllers/quiz_controller.rb'
+Style/TrivialAccessors:
+  Exclude:
+    - 'app/services/standard_responder.rb'
+Lint/UselessAssignment:
+  Exclude:
+    - 'app/controllers/quiz_controller.rb'
+Lint/NonDeterministicRequireOrder:
+  Exclude:
+    - 'spec/rails_helper.rb'
+AllCops:
+  Exclude:
+    - 'lib/tasks/*'
+    - 'config/*'
+    - 'config/*/*'
+    - 'bin/*'
+    - 'db/schema.rb'

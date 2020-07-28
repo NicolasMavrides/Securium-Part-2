@@ -1,0 +1,20 @@
+.row
+  .col
+    .row
+      .col-sm-5.mb-3
+        %p.m-0 Percentage range
+        %h4.m-0= "#{@prev_percentage || '0'} - #{@recommendation.percentage}%"
+      .col-sm.mb-3
+        %p.m-0 Difficulty
+        %h4.m-0= @recommendation.difficulty == 1 ? 'Standard' : 'Hard'
+  .col-auto
+    = link_dynamic edit_category_recommendation_path(@category, @recommendation, difficulty: params[:difficulty]), '#recommendation-content', class: 'btn btn-primary mr-1', title: 'Edit recommendation' do
+      = fa_icon 'edit'
+      %span Edit
+    = link_dynamic category_recommendation_path(@category, @recommendation, difficulty: params[:difficulty]), '#recommendations-content', :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger', title: 'Delete recommendation' do
+      = fa_icon 'trash'
+
+%p
+  %h4 Description
+  %hr
+  = html_only @recommendation.description

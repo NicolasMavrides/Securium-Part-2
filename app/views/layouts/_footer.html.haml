@@ -1,0 +1,10 @@
+- fixed_footer = user_signed_in? || controller_name == 'pages'
+%footer.clearfix.bg-dark-2.text-light-1{ class: "#{'fixed-bottom' if fixed_footer}" }
+  .container.text-center.py-3
+    %span.d-block &copy; #{Date.today.year} Genesys - Team 2 - Securium
+    .small.align-middle
+      = link_to 'Privacy', '/privacy', class: 'text-primary'
+      %span.vertical-line.mx-3
+      = link_to 'Accessibility', '/accessibility', class: 'text-primary'
+      %span.vertical-line.mx-3
+      = link_to 'Contact Us', '/contact_us', class:'text-primary'

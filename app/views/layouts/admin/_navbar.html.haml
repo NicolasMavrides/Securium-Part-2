@@ -1,0 +1,15 @@
+%nav.navbar.navbar-dark.bg-dark-2.navbar-expand-lg
+  .container
+    .navbar-header
+      = link_to :root, class: 'navbar-brand scroll' do
+        = image_tag 'logo.png', alt: 'Logo image', height: '40'
+        %span Securium
+    %button.navbar-toggler{ aria: { controls: 'navbar-content', expanded: false, label: 'Toggle navigation' }, data: { target: '#navbar-content', toggle: 'collapse' }, type: 'button' }
+      %span.navbar-toggler-icon
+
+
+    .collapse.navbar-collapse#navbar-content
+      %ul.nav.navbar-nav.navbar-right.ml-auto
+        %li.nav-item= link_to 'Categories', :categories, class: "scroll nav-link #{'active' if controller_name == 'categories'}"
+        %li.nav-item= link_to 'Recommendations', :recommendations_categories, class: "scroll nav-link #{'active' if controller_name == 'recommendations'}"
+        %li.nav-item= link_to 'Log Out', :destroy_admin_session, method: :delete, class: "scroll nav-link"

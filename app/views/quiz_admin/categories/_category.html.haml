@@ -1,0 +1,21 @@
+.container
+  #category-header= render 'quiz_admin/categories/category_header'
+  - @questions = @category.quiz_questions.includes(:quiz_options).order('id ASC')
+  %h4.mt-4
+    .row.align-items-center
+      .col
+        %span.badge.badge-dark-1.align-middle #{@questions.count}
+        %span.align-middle Questions
+      .col-auto
+        - link_class = "btn btn-outline-primary hide #{'active disabled' if action_name == 'new'}"
+        = link_dynamic 'New question', new_category_quiz_question_path(@category), '#questions-content', class: link_class
+  %hr
+  .row
+    #questions-content.content-dynamic.col-12
+      - if @question && !['show', 'create', 'update', 'destroy'].include?(action_name)
+        = render "quiz_admin/quiz_questions/#{@question.new_record? ? 'new' : 'edit'}"
+      - else
+        - @questions.each do |question|
+          - @question = question
+          .content-dynamic{ id: "question-#{@question.id}-content" }
+            = render 'quiz_admin/quiz_questions/show'

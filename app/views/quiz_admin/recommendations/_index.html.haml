@@ -1,0 +1,22 @@
+.row.align-items-center.mt-3
+  .col
+    %h3.mb-0= @category.name
+  .col-auto
+    - link_class = 'active disabled' if action_name == 'new'
+    = link_dynamic 'New', new_category_recommendation_path, '#recommendation-content', class: "btn btn-primary hide #{link_class}"
+%hr
+#recommendation-nav.multi-range.nav-dynamic.mt-5
+  - last_percentage = 0
+  - @recommendations.each do |recommendation|
+    - link_class = "nav-link #{'active disabled' if @recommendation && @recommendation.id == recommendation.id}"
+    = link_dynamic category_recommendation_path(id: recommendation.id), '#recommendation-content', style: "width: #{ recommendation.percentage - last_percentage }%", class: link_class do
+      .range-input{ style: "width: #{ recommendation.percentage - last_percentage }%" }
+        %span.percentage.text-dark= "#{ recommendation.percentage }%"
+    - last_percentage = recommendation.percentage
+  - unless last_percentage == 100
+    %a.empty{ style: "width: #{ 100 - last_percentage }%" }
+
+.row.mt-4
+  #recommendation-content.content-dynamic.col-12
+    = render action_name if ['new', 'show', 'edit'].include? action_name
+    = render 'show' if ['create', 'update'].include? action_name

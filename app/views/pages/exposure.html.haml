@@ -1,0 +1,28 @@
+- content_for :title, "Exposure Search"
+
+.container.full
+  .row.align-items-stretch.full
+    .col-md-5.bg-dark-2.text-light.mb-4
+      .heading.mt-3 Exposure Search Tools
+      .p.mb-3 Use our two tools to find out what information of yours is available online and if your accounts have been involved in data breaches.
+      .p Using this information, you can log into your respective accounts and remove things that you no longer want to be public.
+    .col-md-7.bg-light.text-dark.py-3
+      .row
+        .col.heading.mt-3 Account Breaches
+        .col-auto= link_to 'Check for breaches', :breaches, class: 'btn btn-primary mt-3'
+
+      %hr
+      %p Is news of reoccuring data breaches worrying you? Are you concerned you might have been a victim and haven't been informed?
+      %p Use our HaveIBeenPwned integration to find out if your email address has been breached﻿. Simply enter your email address and you will be provided with a list of any relevant breaches and further information.
+
+      .row
+        .col.heading.mt-3 Data Scraper
+        .col-auto= link_to 'Check online data', :sherlock_index, class: 'btn btn-primary mt-3'
+
+
+      %hr
+      %p Are you worried you might have forgotten about old accounts or data of yours being available without you knowing?
+      %p Use our Sherlock integration! Just enter your name or user name and view a list of sources that invole your name. We then recommend you visit those sites to delete old accounts or update your privacy settings to increase your privacy and safety.
+
+
+= javascript_include_tag 'sherlock'

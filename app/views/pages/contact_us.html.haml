@@ -1,0 +1,29 @@
+- content_for :title, 'Contact Us'
+.container.h-100
+  .row.h-100
+    .col-md-5.bg-dark-2.text-light
+      %span
+        .heading.mt-3 Contact Us
+        %p.mb-5 If you would like to get in touch with us for whatever reason, we have provided ways for you to do this.
+        %p.mb-5 We would love to hear your thoughts on if this site is useful to you, or if you have any feedback or ideas and improvements!
+    .col-md-7.bg-light.py-5
+      %table
+        %tbody
+          %tr
+            %td.pr-5.pl-3= image_tag 'mail.png', alt: 'Email us here', width: 60, class: 'img-fluid'
+            %td <a href='mailto:team02genesys@gmail.com'> team02genesys@gmail.com </a>
+          %tr
+            %td.pl-3= image_tag 'pin.png', alt: 'Postal address', width: 60, class: 'img-fluid'
+            %td
+              Floor C, Cathedral Court.
+              %br
+              1 Vicar Lane, Sheffield,
+              %br
+              #{ link_to 'S1 2LT', 'https://www.google.com/search?q=epigenesys'}
+          %tr
+            %td.pl-3= image_tag 'twitter.png', alt: 'Find us on Twitter', width: 60, class: 'img-fluid'
+            %td #{ link_to '@securium', 'https://twitter.com/Secur1um'}
+          %tr
+            %td.pl-3= image_tag 'phone.png', alt: 'Phone number', width: 60, class: 'img-fluid'
+            %td 0114 222 1888
+

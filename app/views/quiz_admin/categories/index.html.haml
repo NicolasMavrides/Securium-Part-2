@@ -1,0 +1,11 @@
+- content_for :title, 'Categories'
+
+.container
+  .page-header
+    %h2 Manage Quiz
+    %hr
+    .row
+      .col-lg-3.mb-5= render 'quiz_admin/categories/navbar'
+      #category-content.content-dynamic.col-lg-9
+        = render 'quiz_admin/categories/index' if action_name == 'index'
+        = render "categories/#{@category.new_record? ? 'new' : 'category'}" if @category
